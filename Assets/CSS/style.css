@@ -4,4 +4,11 @@ h1 {
 	line-height: 150px;
 	color: white;
 	background-color: #04677a;
+	border-radius: 10px;
+}
+
+.form {
+	border: 2px solid #04677a;
+	border-radius: 10px;
+	padding: 5px;
 }
