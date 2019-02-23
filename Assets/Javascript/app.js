@@ -1,14 +1,15 @@
 /* API Key = IZXj7BjN7oauLYCKocfKCTNV6moMqX1K */
-var search
-var numberRecords
-var begin_date
-var end_date
+var search;
+var numberRecords;
+var begin_date;
+var end_date;
 
 
 $("#search-button").on("click", function() {
     var search = $("#search").val();
-    var begin_date = $("start").val();
-    var end_date = $("end").val();
+    var begin_date = $("#start").val();
+    var end_date = $("#end").val();
+    var numberRecords = $('#number').val();
 
     //API query link
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+search+"&"+begin_date+"&"+end_date+"&api-key=IZXj7BjN7oauLYCKocfKCTNV6moMqX1K"
@@ -16,15 +17,16 @@ $("#search-button").on("click", function() {
     //ajax function to pull from API
     $.ajax({
       url: queryURL,
-      method: "GET"
-    })
+      method: "GET",
+      success: function() {
+      	// searchFunc();
+      	console.log(response);
+      },
+      error: function() {
+      	alert('Error: Articles Not Found');
+      }
+    });
 
-    //what happens when you pull
-      .then(function(response) {
-console.log(response)
-
-
-      });
        
 
 
