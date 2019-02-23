@@ -1,9 +1,9 @@
-//Storing click functions for Ajax
+//Storing click functions for calling Ajax
 
-$('#Search').on('click', function(){
-    
+$('#search-button').on('click', function(){
+    alert("search clicked");
 });
 
-$('#Clear').on('click', function(){
-    
+$('#clear-button').on('click', function(){
+    alert("clear clicked");
 });
