@@ -19,9 +19,6 @@ $("#search-button").on("click", function() {
     if ($('#end').val() != '') {
       var end_date = `&end_date=${$("#end").val()}0101`;
     };
-    
-    // set number of records to retrieve
-    numberRecords = $('#number').attr('value');
 
     if (search != undefined){
       searchStr = searchStr + search;
@@ -39,6 +36,7 @@ $("#search-button").on("click", function() {
       method: "GET",
       // if successfully grabbed object for 
       success: function(query) {
+        $('#articles').text('');
         console.log(query);
         var data = query.response;
           for (var i = 0; i < numberRecords; i++) {
@@ -49,11 +47,11 @@ $("#search-button").on("click", function() {
           var artDateDiv = $('<div>');
           var urlDiv = $('<a>');
                 
-          var headlineText = docs[i].data.headline.main;
-          var authorText = docs[i].data.byline.original;
-          var sectionText = docs[i].data.section_name;
-          var artDateText = docs[i].data.pub_date;
-          var urlText = docs[i].data.web_url;
+          var headlineText = data.docs[i].headline.main;
+          var authorText = data.docs[i].byline.original;
+          var sectionText = data.docs[i].section_name;
+          var artDateText = data.docs[i].pub_date;
+          var urlText = data.docs[i].web_url;
   
           headlineDiv.text(headlineText);
           authorDiv.text(authorText);
